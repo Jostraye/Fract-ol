@@ -3,7 +3,7 @@
 Fract'ol is a program that lets you explore the psychedelic universe of 7 fractals, including the Madelbort and Julia sets.
 
 The executable is called fractol, you can execute it without argument: this will bring you on the famous Madelbrot set. You can also choose to pass it as an argument any number between 1 and 7.
-The progem allows you to move around, you can zom in and out using the mouse wheel, switch from one fractal to another, change the colors and sharpen the shape of the fractal.
+The program allows you to move around, you can zoom in and out using the mouse wheel, switch from one fractal to another, change the colors and sharpen the shape of the fractal.
 
 Please explore this project, I hope you can too fall in love with the beauty of those mathematical objects. Below are some examples of the intriguing shapes you can stumble upon in my program:
 
