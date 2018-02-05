@@ -25,15 +25,21 @@ int				attribute_color(double distance, int clr_set)
 	return (result);
 }
 
-double complex	fract_iter(int arg, double  complex z, t_env *e)
+float complex	fract_iter(int arg, double  complex z, t_env *e)
 {
 	double			a;
 	double			b;
 	double	complex c;
 	double	complex x;
+	if (e->i < e->xj)
+		a = ((e->i + e->x) / (SIZE * e->zoom_param) + e->x_offset) ;
+	else
+		a = ((e->i + e->x) / (SIZE * e->zoom_param) + e->x_offset) ;
+	if (e->i < e->xj)
+		b = ((e->j + e->y) / (SIZE * e->zoom_param) + e->y_offset) ;
+	else
+	b = ((e->j + e->y) / (SIZE * e->zoom_param) + e->y_offset) ;
 
-	a = (e->i + e->x) / (SIZE * e->zoom_param) + e->x_offset;
-	b = (e->j + e->y) / (SIZE * e->zoom_param) + e->y_offset;
 	c = a + b * I;
 	if (arg == 1)
 		x = z * z + c;
@@ -57,7 +63,7 @@ double complex	fract_iter(int arg, double  complex z, t_env *e)
 void			mobl_fract(t_env *e)
 {
 	int				i;
-	double complex	c;
+	float complex	c;
 
 	i = 0;
 	e->a = (e->i + e->x) / (SIZE * e->zoom_param) + e->x_offset;
@@ -76,9 +82,9 @@ void			mobl_fract(t_env *e)
 void			stat_fract(t_env *e)
 {
 	int				i;
-	double complex	z;
-	double complex	z1;
-	double complex	z2;
+	float complex	z;
+	float complex	z1;
+	float complex	z2;
 
 	i = 0;
 	z = 0;

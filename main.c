@@ -17,6 +17,8 @@ t_env	*reset_environment(t_env *e)
 	e->zoom_param = 0.5;
 	e->x = -(SIZE) / 2;
 	e->y = -(SIZE) / 2;
+	e->yj = SIZE;
+	e->xj = SIZE;
 	e->x_offset = 0;
 	e->y_offset = 0;
 	e->max_it = 17;

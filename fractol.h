@@ -35,9 +35,9 @@ typedef struct		s_env
 	int				max_it;
 	double			a;
 	double			b;
-	double complex	z;
-	double complex	z1;
-	double complex	z2;
+	float complex	z;
+	float complex	z1;
+	float complex	z2;
 	void			*mlx;
 	void			*win;
 	void			*img;
@@ -47,6 +47,8 @@ typedef struct		s_env
 	double			j;
 	double			x;
 	double			y;
+	double			xzz;
+	double			yzz;
 	int				clr_set;
 	pthread_t		pth[TH_NB];
 	double			thread_int;

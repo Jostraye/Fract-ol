@@ -36,12 +36,32 @@ int		expose_hook(t_env *e)
 
 int		mouse_click_hook(int k, int x, int y, t_env *e)
 {
+	if (k == 1)
+	{
+		e->x_offset -= ((double)(SIZE / 2 - x) / SIZE);
+		e->y_offset -= ((double)(SIZE / 2 - y) / SIZE);
+	}
+	if (k == 2)
+	{
+		e->x_offset += ((double)(SIZE / 2 - x) / SIZE);
+		e->y_offset += ((double)(SIZE / 2 - y) / SIZE);
+	}
 	if (k == 4)
+	{
 		e->zoom_param *= 1.2;
+		e->x_offset -= (double)(SIZE / 2 - x) / ((4 * e->zoom_param)
+			* SIZE + SIZE * e->zoom_param);
+		e->y_offset -= (double)(SIZE / 2 - y) / ((4 * e->zoom_param)
+			* SIZE + SIZE * e->zoom_param);
+	}
 	if (k == 5)
+	{
 		e->zoom_param /= 1.2;
-	e->x_offset -= (double)(SIZE / 2 - x) / (SIZE * (1 + e->zoom_param));
-	e->y_offset -= (double)(SIZE / 2 - y) / (SIZE * (1 + e->zoom_param));
+		e->x_offset += (double)(SIZE / 2 - x) / ((4 * e->zoom_param)
+			* SIZE + SIZE * e->zoom_param);
+		e->y_offset += (double)(SIZE / 2 - y) / ((4 * e->zoom_param)
+			* SIZE + SIZE * e->zoom_param);
+	}
 	expose_hook(e);
 	return (0);
 }

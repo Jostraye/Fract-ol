@@ -36,7 +36,7 @@ SRCS = main.c \
 			 colors.c \
 			 hooks.c
 
-all: $(LTA) $(LXA) fracting
+all: $(LTA) $(LXA) $(NAME)
 
 $(LXA):
 	make -C $(LX)
@@ -44,7 +44,7 @@ $(LXA):
 $(LTA):
 	make -C $(LT)
 
-fracting:
+fractol:
 	gcc $(FLAGS) $(LX) -c $(LT)$(ALLC) $(ALLC)
 	gcc $(FLAGS) $(LX) $(ALLO) -L$(LX) -L$(LT) $(LIBS) -o $(NAME) $(FRMWRK)
 
