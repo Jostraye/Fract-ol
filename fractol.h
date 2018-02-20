@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include <complex.h>
 # include <pthread.h>
 # include "mlx.h"
 # define SIZE 1000
@@ -25,6 +24,12 @@
 # define WIN_W 1000
 # define CLR 0x333d3f
 # define TH_NB 16
+
+typedef struct		s_complex
+{
+	double					im;
+	double					re;
+}									t_complex;
 
 typedef struct		s_env
 {
@@ -35,9 +40,9 @@ typedef struct		s_env
 	int				max_it;
 	double			a;
 	double			b;
-	float complex	z;
-	float complex	z1;
-	float complex	z2;
+	t_complex	z;
+	t_complex	z1;
+	t_complex	z2;
 	void			*mlx;
 	void			*win;
 	void			*img;
@@ -86,5 +91,10 @@ int					plastic_palette(double r);
 int					attribute_color(double distance, int clr_set);
 void				mobl_fract(t_env *e);
 void				stat_fract(t_env *e);
+double			c_abs(t_complex z);
+t_complex		point_delta(t_complex z1, t_complex z2);
+t_complex		c_add(t_complex a, t_complex b);
+t_complex		c_mult(t_complex a, t_complex b);
+t_complex		c_sub(t_complex a, t_complex b);
 
 #endif

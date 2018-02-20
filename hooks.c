@@ -38,13 +38,13 @@ int		mouse_click_hook(int k, int x, int y, t_env *e)
 {
 	if (k == 1)
 	{
-		e->x_offset -= ((double)(SIZE / 2 - x) / SIZE);
-		e->y_offset -= ((double)(SIZE / 2 - y) / SIZE);
+		e->x_offset -= ((double)(SIZE / 2 - x) / SIZE) / e->zoom_param;
+		e->y_offset -= ((double)(SIZE / 2 - y) / SIZE) / e->zoom_param;
 	}
 	if (k == 2)
 	{
-		e->x_offset += ((double)(SIZE / 2 - x) / SIZE);
-		e->y_offset += ((double)(SIZE / 2 - y) / SIZE);
+		e->x_offset += ((double)(SIZE / 2 - x) / SIZE) / e->zoom_param;
+		e->y_offset += ((double)(SIZE / 2 - y) / SIZE) / e->zoom_param;
 	}
 	if (k == 4)
 	{
